@@ -51,7 +51,7 @@ public class LibraryApp {
 
 
                 case 2: // Import Patrons
-                    System.out.print("Enter filename: ");
+                    System.out.print("Enter filename address (Example: C:\\Users\\YourUsername\\OneDrive\\Desktop\\FileName): ");
                     String filename = input.nextLine();
                     library.addPatronsFromFile(filename);
                     break;
