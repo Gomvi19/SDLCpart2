@@ -1,9 +1,10 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class LibraryApp {
-    private static Library library = new Library();
+    private static Library library = new Library(); //instantiation of library
     private static Scanner input = new Scanner(System.in);
-
+    //menu to show the user
     public static void displayMenu() {
         System.out.println("Library App");
         System.out.println("Choose an option: ");
@@ -13,29 +14,41 @@ public class LibraryApp {
         System.out.println("4. Display Patrons");
         System.out.println("5. Quit");
     }
-
-    public static void handleInput() {
+    //handleInput calls the methods depending on user input
+    public static void handleInput()  {
         int choice;
         do {
             displayMenu();
             choice = input.nextInt();
             input.nextLine(); // consume leftover newline
-
+            //selecting method based on user input
             switch (choice) {
                 case 1: // Add Patron
                     System.out.print("Enter id: ");
                     String id = input.nextLine();
+                    while(id.length() != 7){ //verifying if ID is 7 digits
+                        System.out.println("ID must be 7 digits");
+                        System.out.println("Enter id: ");
+                        id = input.nextLine();
+                    }
                     System.out.print("Enter name: ");
                     String name = input.nextLine();
                     System.out.print("Enter address: ");
-                    String email = input.nextLine();
+                    String address = input.nextLine();
                     System.out.print("Enter fine amount: ");
                     double fineAmount = input.nextDouble();
+                    while (fineAmount < 0 || fineAmount > 250) { //verifying that fine is between 0 and 250
+                        System.out.println("Number must be between 0 and 250");
+                        System.out.print("Enter fine amount: ");
+                        fineAmount = input.nextDouble();
+                    }
                     input.nextLine(); // consume leftover newline
-                    Patron patron = new Patron(id, name, email, fineAmount);
+                    Patron patron = new Patron(id, name, address, fineAmount);
                     library.addPatron(patron);
                     System.out.println("Patron added successfully.");
                     break;
+
+
 
                 case 2: // Import Patrons
                     System.out.print("Enter filename: ");
@@ -65,7 +78,7 @@ public class LibraryApp {
 
 
     public static void main(String[] args) {
-        handleInput();
+        handleInput();//start the loop
     }
 
 
