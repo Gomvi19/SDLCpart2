@@ -1,4 +1,6 @@
-//Library app holds a list of Patron objects and performs methods to add patrons, load from a file, removed patrons, and display the list of patrons
+//Victor Gomez, CEN3024C, 09/06/2025
+//Library class
+//holds a list of Patron objects and performs methods to add patrons, load from a file, removed patrons, and display the list of patrons
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,7 +19,10 @@ public class Library {
         patrons.add(p);
     }
 
-    //loading patrons from a file
+    //addPatronsFromFile
+    //loads patrons from a file
+    // takes the file's address as input
+    //void method doesn't return anything but displays a message to the user confirming the patrons have been loaded
     public void addPatronsFromFile(String filename){
         int count =0; //count of patrons added
         // Automatically append .txt if it’s not already there
@@ -46,8 +51,10 @@ public class Library {
             System.out.println("Error reading file: " + e.getMessage());
         }
     }
-
-    //removing Patrons
+    //removePatron
+    //removes Patrons from list
+    //takes the id value to be looked at in the list to delete the patron
+    //void function doesn't return anything but displays a message to let the user know if hte patron was deleted
     public void removePatron(String id){
         boolean removed = patrons.removeIf(p -> p.getId().equals(id));
         if (removed) {
@@ -56,7 +63,10 @@ public class Library {
             System.out.println("No patron found with ID " + id + ".");
         }
     }
-    //display patrons
+    //displayPatrons
+    //displays the list of patrons
+    //takes no arguments
+    //void methods doesn't return anything, prints the list if is not empty
     public void displayPatrons(){
         if (patrons.isEmpty()) {
             System.out.println("No patrons found.");

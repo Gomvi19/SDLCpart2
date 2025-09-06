@@ -1,4 +1,6 @@
-//Patron class has 4 attributes id,name,address, and fine amount and holds all the information of the Patrons it also overrides the toString method
+//Victor Gomez, CEN3024C, 09/06/2025
+//Patron class
+//Has 4 attributes id,name,address, and fine amount and holds all the information of the Patrons it also overrides the toString method
 public class Patron {
     private String id;
     private String name;

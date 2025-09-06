@@ -1,10 +1,16 @@
-import java.util.InputMismatchException;
+//Victor Gomez, CEN3024C, 09/06/2025
+//LibraryApp class
+//Contains main and contains the menu function as well as the user input to be given to the other classes methods
+//This program aims to create a system to input, load from a file, delete, and display patrons for a library
 import java.util.Scanner;
 
 public class LibraryApp {
     private static Library library = new Library(); //instantiation of library
     private static Scanner input = new Scanner(System.in);
+    //displayMenu
     //menu to show the user
+    //no arguments
+    //void method doesn't return anything, but prints the menu everytime is called
     public static void displayMenu() {
         System.out.println("Library App");
         System.out.println("Choose an option: ");
@@ -14,7 +20,10 @@ public class LibraryApp {
         System.out.println("4. Display Patrons");
         System.out.println("5. Quit");
     }
-    //handleInput calls the methods depending on user input
+    //handleInput
+    // calls the methods depending on user input
+    //no arguments
+    //void method doesn't return anything, but there's multiple prints within the method to guide the user
     public static void handleInput()  {
         int choice;
         do {
@@ -47,8 +56,6 @@ public class LibraryApp {
                     library.addPatron(patron);
                     System.out.println("Patron added successfully.");
                     break;
-
-
 
                 case 2: // Import Patrons
                     System.out.print("Enter filename address (Example: C:\\Users\\YourUsername\\OneDrive\\Desktop\\FileName): ");
